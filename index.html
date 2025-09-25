@@ -32,12 +32,15 @@
     
     body {
       font-family: "Segoe UI", sans-serif;
-      background: url("images/obrazokpozadia.png") center/cover no-repeat fixed;
+      background: url("images/obrazokpozadia.png") no-repeat center center;
+      background-size: cover;
+      background-attachment: scroll;
+      background-color: var(--bg-color);
       color: var(--text-color);
       overflow-x: hidden;
       transition: background 0.4s, color 0.4s;
-      background-color: var(--bg-color);
-      padding-top: 70px; /* Priestor pre fixed navigáciu */
+      padding-top: 70px;
+      min-height: 100vh;
     }
     
     h1, h2 { 
@@ -367,7 +370,7 @@
       background: rgba(0, 0, 0, 0.6);
       border-radius: 15px;
       padding: 50px 40px;
-      margin: 20px auto; /* Zmenené na auto pre centrovanie */
+      margin: 20px auto;
       width: 90%;
       max-width: 700px;
       display: flex;
@@ -653,6 +656,9 @@
     @media (max-width: 768px) {
       body {
         padding-top: 60px;
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
       }
       
       nav {
@@ -749,6 +755,11 @@
     }
 
     @media (max-width: 576px) {
+      body {
+        background-size: cover;
+        background-position: center center;
+      }
+      
       .gallery, .video-grid { 
         grid-template-columns: 1fr; 
       }
@@ -854,6 +865,13 @@
       }
     }
 
+    @media (max-width: 480px) and (max-height: 700px) {
+      body {
+        background-size: cover;
+        background-position: top center;
+      }
+    }
+
     @media (max-width: 400px) {
       nav .logo-text {
         font-size: 1rem;
@@ -904,6 +922,13 @@
       .calendar-title-with-bg {
         font-size: 1.1rem;
         padding: 7px 12px;
+      }
+    }
+
+    /* Pre tablety */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      body {
+        background-attachment: scroll;
       }
     }
 
