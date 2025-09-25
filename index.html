@@ -31,14 +31,41 @@
     }
     
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: url("images/obrazokpozadia.png") center/cover no-repeat fixed;
-      color: var(--text-color);
-      overflow-x: hidden;
-      transition: background 0.4s, color 0.4s;
-      background-color: var(--bg-color);
-      padding-top: 70px; /* Priestor pre fixed navigáciu */
+    font-family: "Segoe UI", sans-serif;
+    background: url("images/obrazokpozadia.png") no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll; /* Zmenené z fixed na scroll */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
+    padding-top: 70px;
+    min-height: 100vh;
+}
+
+/* Pridané media query pre mobilné zariadenia */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
     }
+    
+    /* Pre veľmi malé obrazovky alebo problémové zariadenia */
+    @media (max-width: 480px) and (max-height: 700px) {
+        body {
+            background-size: cover;
+            background-position: top center;
+        }
+    }
+}
+
+/* Pre tablety */
+@media (max-width: 1024px) and (min-width: 769px) {
+    body {
+        background-attachment: scroll;
+    }
+}
     
     h1, h2 { 
       font-weight: 700; 
@@ -1010,7 +1037,7 @@
   <section id="gallery">
     <h2 class="section-title-with-bg">Galéria</h2>
     <div class="gallery">
-      <img src="fotka1.jpg" alt="Fotka 1" loading="lazy">
+      <img src="images/fotka1.jpg" alt="Fotka 1" loading="lazy">
       <img src="images/fotka2.jpg" alt="Fotka 2" loading="lazy">
       <img src="images/fotka3.jpg" alt="Fotka 3" loading="lazy">
       <img src="images/fotka4.jpg" alt="Fotka 4" loading="lazy">
